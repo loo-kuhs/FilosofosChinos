@@ -93,14 +93,13 @@ namespace FilosofosChinos.FILOSOFOS
                             txt_C.Invoke(new Action(() =>
                             this.txt_C.Text = (" " + (++CForm.F_Conteo[idFilosofo]))));
                         }
-
                         //txt_C.Text = (" " + (++CForm.F_Conteo[idFilosofo]));
                         if (CForm.gettxtLog() != null)
                             log.doRegistros(" El Filosofo " + (idFilosofo + 1) + " esta comiendo. ");
                         try
                         {
-                            //Thread.Sleep(1000 + 500);
-                            Monitor.Wait(locker, r.Next(1000 + 500));
+                            Thread.Sleep(1000 + 500);
+                            //Monitor.Wait(locker, r.Next(1000 + 500));
                         }
                         catch (ThreadInterruptedException ex)
                         {
