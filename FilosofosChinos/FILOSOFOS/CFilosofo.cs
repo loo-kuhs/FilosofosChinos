@@ -87,8 +87,14 @@ namespace FilosofosChinos.FILOSOFOS
                         this.label_P_izq.BackColor = Color.Blue;
                         this.label_F.BackColor = Color.Orange;
                         this.label_F.ForeColor = Color.Blue;
+                        
+                        if (txt_C.InvokeRequired)
+                        {
+                            txt_C.Invoke(new Action(() =>
+                            this.txt_C.Text = (" " + (++CForm.F_Conteo[idFilosofo]))));
+                        }
 
-                        txt_C.Text = (" " + (++CForm.F_Conteo[idFilosofo]));
+                        //txt_C.Text = (" " + (++CForm.F_Conteo[idFilosofo]));
                         if (CForm.gettxtLog() != null)
                             log.doRegistros(" El Filosofo " + (idFilosofo + 1) + " esta comiendo. ");
                         try

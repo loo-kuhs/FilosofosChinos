@@ -51,8 +51,13 @@ namespace FilosofosChinos.LOGICA
             for (int i = 0; i < filosofo.Length; i++)
             {
                 //filosofo[i].Run();
-                Thread t = new Thread(filosofo[i].Run);
-                t.Start();
+                for (int t = 0; t < threads.Length; t++)
+                {
+                    threads[t] = new Thread(new ThreadStart(filosofo[i].Run));
+                    threads[t].Start();
+                }
+                //Thread t = new Thread(filosofo[i].Run);
+                //t.Start();
             }
         }
     }
