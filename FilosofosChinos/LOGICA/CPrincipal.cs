@@ -16,7 +16,7 @@ namespace FilosofosChinos.LOGICA
         private Label[] label_F = new Label[5];
         private Label[] label_P = new Label[5];
         private TextBox[] txt_C = new TextBox[5];
-        //private Thread[] threads = new Thread[5];
+        private Thread[] threads = new Thread[5];
         public CPrincipal(CForm cForm)
         {
             this.label_F = cForm.getlabel_F();
@@ -35,16 +35,24 @@ namespace FilosofosChinos.LOGICA
                 palillo[i] = new CPalillo(i);
             }
 
+            //for (int t = 0; t < threads.Length; t++)
+            //{
+
+            //    threads[t].Start();
+            //}
+
             for (int i = 0; i < filosofo.Length; i++)
             {
                 filosofo[i] = new CFilosofo(i, palillo[i], palillo[(i + 1) % 5],
                     comensal, label_F[i], label_P[i], label_P[(i + 1) % 5], log,
-                    txt_C[i]);
+                    txt_C[i]);            
             }
 
             for (int i = 0; i < filosofo.Length; i++)
             {
-                filosofo[i].Run();
+                //filosofo[i].Run();
+                Thread t = new Thread(filosofo[i].Run);
+                t.Start();
             }
         }
     }

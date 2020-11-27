@@ -89,7 +89,6 @@ namespace FilosofosChinos.VISTAS
 
         public static void settxtInfo(String mensaje)
         {
-
             txtLog.AppendText(mensaje + "\n");
             txtLog.ScrollToCaret();
         }

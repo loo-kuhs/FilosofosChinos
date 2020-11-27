@@ -16,19 +16,23 @@ namespace FilosofosChinos.FILOSOFOS
     {
         private Random r = new Random();
 
-        private int idFilosofo;
-        private CPalillo izq, der;
-        private CMonitoMesa comensal;
-        private Label label_F, label_P_der, label_P_izq;
-        private CLog log;
-        private TextBox txt_C;
+        private int idFilosofo; //Identificador del Filosofo
+        private CPalillo izq, der; //Identificador de cada palillo
+        private CMonitoMesa comensal; 
+        private Label label_F, label_P_der, label_P_izq; //Elementos graficos
+        private CLog log; //Escribir en los registros
+        private TextBox txt_C; //Contador de comidas
 
         public static Boolean finalizado = false;
 
         private object locker = new object();
-        public CFilosofo(int idFilosofo, CPalillo der, CPalillo izq, CMonitoMesa comensal,
-            Label label_F, Label label_P_der, Label label_P_izq, CLog log, TextBox txt_C)
+        public CFilosofo(
+            int idFilosofo, CPalillo der, 
+            CPalillo izq, CMonitoMesa comensal,
+            Label label_F, Label label_P_der, 
+            Label label_P_izq, CLog log, TextBox txt_C)
         {
+            //Asignacion de variables compartidas
             this.idFilosofo = idFilosofo;
             this.der = der;
             this.izq = izq;
@@ -36,7 +40,7 @@ namespace FilosofosChinos.FILOSOFOS
             this.label_F = label_F;
             this.label_P_der = label_P_der;
             this.label_P_izq = label_P_izq;
-            this.log = log;
+            this.log = log; // O puede ser null, de esta forma no escribiria registros
             this.txt_C = txt_C;
         }
         public void Run()
