@@ -528,7 +528,7 @@ namespace FilosofosChinos
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "ESTOS NO SABEN TRAGAR - [27/11/2020]";
+            this.Text = "YA FUNCIONA ESTA MRD - [27/11/2020]";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
