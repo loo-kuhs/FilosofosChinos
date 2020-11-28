@@ -113,14 +113,22 @@ namespace FilosofosChinos
         private void btnDetener_Click(object sender, EventArgs e)
         {
             CFilosofo.finalizado = true;
-            try
+            lock (locker)
             {
-                Monitor.Wait(this, TimeSpan.FromMilliseconds((3000)));
+                try
+                {
+                    Monitor.Wait(locker, 3000);
+                }
+                catch (ThreadInterruptedException ex)
+                {
+                    MessageBox.Show("Error. Descripcion: " + ex.ToString());
+                }
             }
-            catch (ThreadInterruptedException ex)
-            {
-                MessageBox.Show("Error. Descripcion: " + ex.ToString());
-            }
+            //try
+            //{
+            //    Monitor.Wait(this);
+            //}
+            
             this.btnIniciar.Enabled = true;
             this.btnDetener.Enabled = false;
         }
